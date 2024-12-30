@@ -1,0 +1,20 @@
+Orientaron el proyecto de programación,
+q no tiene fecha exacta. Crear un "motor de búsqueda" con 
+funcionalidades similares a Google,
+con el q dado una string pasado por el usuario, el programa devuelva
+los ficheros q contengan a dicho string, o a pedazos de dicho string,
+así como la ubicación de estos dentro del fichero; más o menos como 
+Google. Los ficheros son arbitrarios, o sea, pueden ser x cantidad de
+ficheros q pueda agregar cualquier persona en una ubicación específica (para facilitar el trabajo). De todas formas, falta 
+por dar evidentemente, para tener las herramientas con las q hacer el proyecto, así q no se asusten. De todas formas, el 
+consejo de la profe fue empezar ya. Además quiero que tenga una interfaz
+TextoHTML
+Copiar
+Lorem ipsum dolor sit amet consectetur, adipiscing elit sociis.
+Turpis ullamcorper lacus, habitant interdum ut, nascetur.
+Diam justo sociosqu convallis sapien nisl, magna consequat cubilia.
+Fringilla dictum convallis platea condimentum a, fames maecenas nisi.
+Dignissim felis nostra posuere nascetur, tempus donec pharetra.
+Consequat lacinia diam placerat vehicula, risus nisl mollis.
+Lacus hac pellentesque semper laoreet, ultrices porta pretium.
+Litora nascetur morbi suspendisse aptent, facilisi ad accumsan.
