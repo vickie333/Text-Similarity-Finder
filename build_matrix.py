@@ -12,14 +12,14 @@ def columns(dir):
         files_in_dir = os.listdir(dir)
     except FileNotFoundError:
         print(f"El directorio '{dir}' no existe.")
-        return ponderated_matrix, files_in_dir, []
+        return ponderated_matrix, [], files_in_dir
 
     all_tokens = set()
 
     for file_name in files_in_dir:
         file_path = os.path.join(dir, file_name)
 
-        if not os.path.isfile(file_path):
+        if os.path.isdir(file_path):
             continue
 
         try:
