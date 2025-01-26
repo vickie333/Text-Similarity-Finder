@@ -3,29 +3,21 @@ import numpy as np
 from tokenizator import token
 from detect_file_encoding import detect_file_encoding
 
-def build_binary_matrix(search_dir):
-    """
-    Construye una matriz binaria que indica la presencia de palabras en los archivos de un directorio.
+def columns(dir):
 
-    Args:
-        search_dir (str): Ruta del directorio donde buscar.
-
-    Returns:
-        tuple: Una matriz binaria, una lista de nombres de archivos y una lista de palabras (columnas).
-    """
     ponderated_matrix = []
     files_in_dir = []
 
     try:
-        files_in_dir = os.listdir(search_dir)
+        files_in_dir = os.listdir(dir)
     except FileNotFoundError:
-        print(f"El directorio '{search_dir}' no existe.")
+        print(f"El directorio '{dir}' no existe.")
         return ponderated_matrix, files_in_dir, []
 
     all_tokens = set()
 
     for file_name in files_in_dir:
-        file_path = os.path.join(search_dir, file_name)
+        file_path = os.path.join(dir, file_name)
 
         if not os.path.isfile(file_path):
             continue
@@ -41,9 +33,13 @@ def build_binary_matrix(search_dir):
             print(f"Error procesando el archivo {file_path}: {e}")
 
     columns = sorted(all_tokens)
+    return columns, files_in_dir
 
-    for file_name in files_in_dir:
-        file_path = os.path.join(search_dir, file_name)
+def vector_file(dir, columns, files_dir):
+    ponderated_matrix = []
+
+    for file_name in files_dir:
+        file_path = os.path.join(dir, file_name)
 
         if not os.path.isfile(file_path):
             continue
@@ -62,12 +58,15 @@ def build_binary_matrix(search_dir):
                         file_vector[idx] = 1
 
                 ponderated_matrix.append(file_vector)
-
         except Exception as e:
             print(f"Error procesando el archivo {file_path}: {e}")
         except (OSError, IOError) as e:
             print(f"Error al leer el archivo {file_path}: {e}")
+            
+    return ponderated_matrix
 
-    columns = sorted(all_tokens)
-
-    return np.array(ponderated_matrix), columns, files_in_dir
+def build_binary_matrix(search_dir):
+    columnas, files_in_dir = columns(search_dir)
+    ponderated_matrix = vector_file(search_dir, columnas, files_in_dir)
+        
+    return np.array(ponderated_matrix), columnas, files_in_dir
