@@ -17,9 +17,7 @@ Run the server by executing the command `python main.py` in the terminal window.
 
 ### What to Expect
 
-The client will write a string of characters and the program will return the files, which contain said string or its similarity. In the following format:
+The client will write a string of characters and the program will return the files, which contain said string, in the following format:
 
-File location,
-line where the string was found,
-the content,
-and the percentage of similarity.
+- File location,
+- the similarity.
