@@ -41,7 +41,7 @@ def main():
 
     user_vector = np.array([user_vector])
 
-    similarity_results = search_similarity(user_vector, matrix, files, columns)
+    similarity_results = search_similarity(user_vector, matrix, files)
 
     sorted_results = sorted(similarity_results.items(), key=lambda x: x[1]["similarity"], reverse=True)
 
