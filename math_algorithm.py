@@ -3,15 +3,17 @@ import numpy as np
 
 def search_similarity(user_input_vector, matrix, files):
     """
-    Función que busca en la matriz de similitudes los archivos que coincidan con la entrada del usuario.
+    Busca archivos en la matriz de similitudes que coincidan con el vector de entrada del usuario.
 
     Args:
-        user_input_vector: Vector de características del input del usuario.
-        matrix: Matriz de características de los archivos.
-        files: Lista de nombres de los archivos.
+        user_input_vector (np.ndarray): Vector que representa las características del input del usuario.
+        matrix (np.ndarray): Matriz que contiene las características de los archivos a comparar.
+        files (list): Lista de nombres de los archivos correspondientes a las filas de la matriz.
 
     Returns:
-        dict: Diccionario con los nombres de los archivos, su similitud, y palabras relevantes.
+        dict: Un diccionario donde cada clave es el nombre de un archivo que supera el umbral de similitud,
+              y cada valor es otro diccionario que contiene:
+              - "similarity": El valor de similitud entre el input del usuario y el archivo.
     """
 
     user_similarity = cosine_similarity(user_input_vector, matrix).flatten()
