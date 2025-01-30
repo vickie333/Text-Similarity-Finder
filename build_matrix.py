@@ -62,7 +62,7 @@ def vector_file(dir, columns, files_dir):
     for file_name in files_dir:
         file_path = os.path.join(dir, file_name)
 
-        if not os.path.isfile(file_path):
+        if os.path.isdir(file_path):
             continue
 
         try:
