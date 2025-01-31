@@ -18,7 +18,7 @@ def main():
     pickle_file_path = os.path.join(pickle_dir, 'binary_matrix.pickle')
 
     if not os.path.exists(pickle_file_path):
-        matrix, columns, files = build_binary_matrix()
+        matrix, columns, files = build_binary_matrix(search_dir)
 
         save_binary_matrix(matrix.tolist(), columns, files, pickle_dir)
     else:
@@ -47,7 +47,7 @@ def main():
 
     if sorted_results:
         print("\nResultados encontrados:")
-        for file_name, data in sorted_results:
+        for file_name, data in sorted_results[:20]:
             print(f"Archivo: {file_name}")
             print(f"Similitud: {data:.2f}")
     else:
