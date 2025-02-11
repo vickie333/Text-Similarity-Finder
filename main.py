@@ -51,7 +51,7 @@ def main():
             print(f"Archivo: {file_name}")
             print(f"Similitud: {data:.2f}")
     else:
-        print("No se encontraron resultados con una similitud mayor a 0.5.")
+        print("No se encontraron resultados similares.")
 
 if __name__ == "__main__":
     main()

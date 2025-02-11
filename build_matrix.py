@@ -14,14 +14,14 @@ def columns(dir):
         - Una lista de tokens únicos ordenados (columnas).
         - Una lista con los nombres de los archivos procesados.
     """
-    ponderated_matrix = []
+    matrix = []
     files_in_dir = []
 
     try:
         files_in_dir = os.listdir(dir)
     except FileNotFoundError:
         print(f"El directorio '{dir}' no existe.")
-        return ponderated_matrix, [], files_in_dir
+        return matrix, [], files_in_dir
 
     all_tokens = set()
 
@@ -57,7 +57,7 @@ def vector_file(dir, columns, files_dir):
     Returns:
         list: Matriz binaria donde cada fila corresponde a un archivo y cada columna a un token.
     """
-    ponderated_matrix = []
+    matrix = []
 
     for file_name in files_dir:
         file_path = os.path.join(dir, file_name)
@@ -78,13 +78,13 @@ def vector_file(dir, columns, files_dir):
                     if word in present_tokens:
                         file_vector[idx] = 1
 
-                ponderated_matrix.append(file_vector)
+                matrix.append(file_vector)
         except Exception as e:
             print(f"Error procesando el archivo {file_path}: {e}")
         except (OSError, IOError) as e:
             print(f"Error al leer el archivo {file_path}: {e}")
             
-    return ponderated_matrix
+    return matrix
 
 def build_binary_matrix(search_dir):
     """
@@ -99,6 +99,6 @@ def build_binary_matrix(search_dir):
             - Una lista con los nombres de los archivos procesados.
     """
     columnas, files_in_dir = columns(search_dir)
-    ponderated_matrix = vector_file(search_dir, columnas, files_in_dir)
+    matrix = vector_file(search_dir, columnas, files_in_dir)
         
-    return np.array(ponderated_matrix), columnas, files_in_dir
+    return np.array(matrix), columnas, files_in_dir
