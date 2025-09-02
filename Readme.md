@@ -1,29 +1,5 @@
 # README
 
-## 1. Installation
-
-To run this project, you will need to have the following tools installed on your machine:
-
-- [Python](https://Python.org)
-- pip install -r requirements.txt
-
-### 2. Create a folder called "cadenas"
-
-If you don't have created a folder called "cadenas", please create it.
-
-### 3. Run the Server
-
-Run the server by executing the command `python main.py` in the terminal window.
-
-### What to Expect
-
-The client will write a string of characters and the program will return the files, which contain said string, in the following format:
-
-- File location,
-- the similarity.
-
----
-
 ## Descripción
 
 Este proyecto permite buscar cadenas de texto similares dentro de un conjunto de archivos de texto ubicados en la carpeta `cadenas`. Convierte los archivos en una matriz binaria de presencia/ausencia de palabras (tokens) y, para una consulta del usuario, calcula la similitud del coseno entre la consulta y cada archivo. Muestra los archivos más similares junto con un puntaje de similitud.
